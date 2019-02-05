@@ -32,10 +32,29 @@ public class Main {
         String command3 = "LL";
         String command4 = "UDLRB"; //wrong command
 
-        System.out.println("command1: " + isRobotAtHome(command1));
-        System.out.println("command2: " + isRobotAtHome(command2));
-        System.out.println("command3: " + isRobotAtHome(command3));
-        System.out.println("command4: " + isRobotAtHome(command4));
+        try {
+            System.out.println("command1: " + isRobotAtHome(command1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.println("command2: " + isRobotAtHome(command2));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.println("command3: " + isRobotAtHome(command3));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.println("command4: " + isRobotAtHome(command4));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static boolean binarySearch(int[] arr, int number) {
@@ -70,12 +89,7 @@ public class Main {
             } else if (command.charAt(i) == 'R') {
                 x++;
             } else {
-                try {
-                    throw new Exception("Wrong command!");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
+                    throw new IllegalArgumentException(command + " is wrong command!");
             }
         }
 
